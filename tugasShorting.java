@@ -23,52 +23,11 @@ public class tugasShorting {
                     break;
                 case 2:
                 // Bubble Short
-                    String[] partKomputer2 = partKomputer;
-                    int[] harga2 = harga;
-
-                    for(int i = 0;i < partKomputer2.length;i++){
-                        for(int j = 0;j < partKomputer.length-1;j++) {
-                            if(harga2[j] > harga[j+1]) {
-                                // shorting harga
-                                int tmp = harga2[j];
-                                harga2[j] = harga2[j+1];
-                                harga2[j+1] = tmp;
-                                // ubah tampilan partKomputer
-                                String tmp2 = partKomputer2[j];
-                                partKomputer2[j] = partKomputer2[j+1];
-                                partKomputer2[j+1] = tmp2;
-
-                            }
-                        }
-                    }
-                    // menampilkan setelah di shorting
-                    for(int i= 0;i < partKomputer.length;i++){
-                        System.out.println("harga part Komputer berdasarkan harga termurah:");
-                        System.out.println(partKomputer2[i]+"\t"+harga2[i]);
-                    }
+                    BubbleShort(partKomputer,harga);
                     break;
                 case 3:
                 // Selection Short
-                    partKomputer2 = partKomputer;
-                    harga2 = harga;
-
-                    for(int i = 0;i < partKomputer2.length-1;i++){
-                        for(int j = i+1;j < partKomputer2.length;j++){
-                            if(harga2[i] < harga2[j]){
-                                int tmp = harga2[j];
-                                harga2[j] = harga2[i];
-                                harga2[i] = tmp;
-                                String tmp2 = partKomputer2[j];
-                                partKomputer2[j] = partKomputer2[i];
-                                partKomputer2[i] = tmp2;
-                            }
-                        }
-                    }
-
-                    System.out.println("harga part Komputer berdasarkan harga termahal:");
-                    for(int i= 0;i < partKomputer.length;i++){
-                        System.out.println(partKomputer2[i]+"\t"+harga2[i]);
-                    }
+                    SelectionShort(partKomputer,harga);
                     break;
                 case 4:
                     System.out.println("Terima Kasih....");
@@ -76,5 +35,50 @@ public class tugasShorting {
             }
         } while (pilihan != 4);
     }
-    
+    // BUBBLE SHORT METHOD
+    public static void BubbleShort(String partKomputer[],int[] harga) {
+        for(int i = 0;i < partKomputer.length;i++){
+            for(int j = 0;j < partKomputer.length-1;j++) {
+                if(harga[j] > harga[j+1]) {
+                    // shorting harga
+                    int tmp = harga[j];
+                    harga[j] = harga[j+1];
+                    harga[j+1] = tmp;
+                    // ubah tampilan partKomputer
+                    String tmp2 = partKomputer[j];
+                    partKomputer[j] = partKomputer[j+1];
+                    partKomputer[j+1] = tmp2;
+
+                }
+            }
+        }
+        // menampilkan setelah di shorting
+        System.out.println("harga part Komputer berdasarkan harga termurah:");
+        for(int i= 0;i < partKomputer.length;i++){
+            System.out.println(partKomputer[i]+"\t"+harga[i]);
+        }
+    }
+
+    // SELECTION SHORT METHOD
+    public static void SelectionShort(String partKomputer[],int[] harga) {
+        for(int i = 0;i < partKomputer.length-1;i++){
+            for(int j = i+1;j < partKomputer.length-1;j++) {
+                if(harga[i] < harga[j]) {
+                    // shorting harga
+                    int tmp = harga[j];
+                    harga[j] = harga[i];
+                    harga[i] = tmp;
+                    // ubah tampilan partKomputer
+                    String tmp2 = partKomputer[j];
+                    partKomputer[j] = partKomputer[i];
+                    partKomputer[i] = tmp2;
+                }
+            }
+        }
+        // menampilkan setelah di shorting
+        System.out.println("harga part Komputer berdasarkan harga termahal:");
+        for(int i= 0;i < partKomputer.length;i++){
+            System.out.println(partKomputer[i]+"\t"+harga[i]);
+        }
+    }
 }
