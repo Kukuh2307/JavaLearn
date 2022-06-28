@@ -1,3 +1,9 @@
+// “Pada skenario kali ini ada seorang anak bernama Dimas yang berkeinginan untuk merakit sebuah komputer yang dibeli dari uang saku yang di kumpulkan setiap hari.Untuk itu dimas berniat untuk menyicil membeli part-part komputer yang sudah di data dan setiap barang memiliki harga tertentu."
+// 1. Bantu Dimas untuk mendata semua komponen yang di butuhkan untuk merakit sebuah komputer dan juga harganya
+// 2. Bantu Dimas untuk mendata semua komponen yang di butuhkan untuk merakit sebuah komputer dan juga harganya berdasarkan harga termurah dengan metode short bebas
+// 3. Bantu Dimas untuk mendata semua komponen yang di butuhkan untuk merakit sebuah komputer dan juga harganya berdasarkan harga termahal dengan metode short bebas
+// 4. Bantu Dimas untuk memastikan bahwa semua barang sudah di data dengan menggunakan metode searching
+
 import java.util.Scanner;
 public class tugasShorting {
     public static void main(String[] args) {
@@ -18,10 +24,13 @@ public class tugasShorting {
             switch(pilihan) {
                 case 1:
                 // tampilan menu part Komputer
-                    System.out.println("Komponen\tHarga");
+                    System.out.println("=================================================");
+                    System.out.println("=\tKomponen\t=\tHarga\t\t=");
+                    System.out.println("=================================================");
                     for(int i= 0;i < partKomputer.length;i++){
-                        System.out.println(partKomputer[i]+"\t"+harga[i]);
+                        System.out.println("=\t"+partKomputer[i]+"\t\t=\t"+harga[i]+"\t\t=");
                     }
+                    System.out.println("=================================================");
                     break;
                 case 2:
                 // Bubble Short
@@ -61,9 +70,14 @@ public class tugasShorting {
         }
         // menampilkan setelah di shorting
         System.out.println("harga part Komputer berdasarkan harga termurah:");
+        
+        System.out.println("=================================================");
+        System.out.println("=\tKomponen\t=\tHarga\t\t=");
+        System.out.println("=================================================");
         for(int i = 0;i < partKomputer.length;i++){
-            System.out.println(partKomputer[i]+"\t"+harga[i]);
+            System.out.println("=\t"+partKomputer[i]+"\t\t=\t"+harga[i]+"\t\t=");
         }
+        System.out.println("=================================================");
     }
 
     // SELECTION SHORT METHOD
@@ -84,9 +98,13 @@ public class tugasShorting {
         }
         // menampilkan setelah di shorting
         System.out.println("harga part Komputer berdasarkan harga termahal:");
+        System.out.println("=================================================");
+        System.out.println("=\tKomponen\t=\tHarga\t\t=");
+        System.out.println("=================================================");
         for(int i = 0;i < partKomputer.length;i++){
-            System.out.println(partKomputer[i]+"\t"+harga[i]);
+            System.out.println("=\t"+partKomputer[i]+"\t\t=\t"+harga[i]+"\t\t=");
         }
+        System.out.println("=================================================");
     }
 
     // Sequential search
@@ -100,12 +118,12 @@ public class tugasShorting {
         if(cari.equalsIgnoreCase(partkomputer[i])) {
             System.out.println("anda menginputkan "+cari+"\ndan barang tersebut valid dan memiliki harga Rp."+harga[i]);
             status = true;
-            System.out.println("keterangan\n"+ cari + " ditemukan pada posisi ke- "+(i+1) +" dan pada index ke "+ i);
+            System.out.println("keterangan :\n"+ cari + " ditemukan pada posisi ke- "+(i+1) +" dan pada index ke "+ i);
             break;
         }
+        // ketika data tidak di temukan
         if(status == false) {
             System.out.println(cari + " tidak di temukan");
         }
     }
-    // ketika data tidak di temukan
 }
